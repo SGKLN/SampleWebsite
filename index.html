@@ -4,107 +4,180 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Urban Threadz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: 'Urbanist', sans-serif;
     }
 
     body {
       background-color: #f4f4f4;
-      color: #333;
+      color: #222;
     }
 
     header {
       background: url('https://images.unsplash.com/photo-1602810314744-58a3c8f3bd5a') center/cover no-repeat;
-      height: 80vh;
+      height: 85vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
       color: white;
+      position: relative;
+    }
+
+    .logo {
+      max-width: 140px;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: 1.4rem;
+      font-weight: 500;
+      background: rgba(0,0,0,0.6);
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
     }
 
     header h1 {
-      font-size: 3rem;
-      letter-spacing: 2px;
-      background: rgba(0,0,0,0.6);
-      padding: 1rem 2rem;
-      border-radius: 10px;
+      font-size: 3.2rem;
+      letter-spacing: 3px;
+      background: rgba(0,0,0,0.65);
+      padding: 1.2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .hero-btn {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: #ff3c00;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero-btn:hover {
+      background-color: #e23300;
     }
 
     nav {
-      background-color: #111;
+      background-color: #000;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 2.5rem;
       padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: #1e90ff;
+      color: #ff3c00;
     }
 
     .section {
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
       text-align: center;
     }
 
     .section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .banner {
+      background-color: #000;
+      color: white;
+      padding: 1rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin: 0;
     }
 
     .products {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 2.5rem;
       margin-top: 2rem;
     }
 
     .product {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 14px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
       overflow: hidden;
-      max-width: 300px;
-      transition: transform 0.2s;
+      max-width: 320px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .product:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
     }
 
     .product img {
       width: 100%;
       height: auto;
+      display: block;
     }
 
     .product h3 {
-      padding: 1rem;
-      font-size: 1.2rem;
+      padding: 1rem 1rem 0 1rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .product button {
+      margin: 1rem 0 1.5rem;
+      padding: 0.6rem 1.5rem;
+      background-color: #ff3c00;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .product button:hover {
+      background-color: #e23300;
     }
 
     .about {
       max-width: 700px;
       margin: 0 auto;
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .reviews {
+      margin-top: 3rem;
+      font-style: italic;
+      color: #333;
     }
 
     footer {
-      background-color: #111;
+      background-color: #000;
       color: white;
       text-align: center;
       padding: 2rem;
@@ -112,14 +185,18 @@
     }
 
     footer a {
-      color: #1e90ff;
+      color: #ff3c00;
       text-decoration: none;
       margin: 0 1rem;
     }
 
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
       .products {
@@ -132,9 +209,13 @@
 <body>
 
   <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png" alt="Urban Threadz Logo" class="logo">
+    <div class="tagline">est. 2025 — futureproof fashion</div>
     <h1>Urban Threadz</h1>
-    <p style="margin-top:1rem;">Streetwear Redefined.</p>
+    <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })">Shop Now</button>
   </header>
+
+  <div class="banner">🔥 LIMITED DROP – ONLY WHILE STOCK LASTS 🔥</div>
 
   <nav>
     <a href="#products">Shop</a>
@@ -148,14 +229,17 @@
       <div class="product">
         <img src="CustomHoodie.png" alt="Custom Hoodie">
         <h3>Classic Hoodie – $35</h3>
+        <button>Buy Now</button>
       </div>
       <div class="product">
-        <img src="CustomHoodie.png" alt="Tee">
+        <img src="https://images.unsplash.com/photo-1602810314367-5eb058d51f8f" alt="Tee">
         <h3>Signature Tee – $20</h3>
+        <button>Buy Now</button>
       </div>
       <div class="product">
-        <img src="CustomHoodie.png" alt="Cap">
+        <img src="https://images.unsplash.com/photo-1593032290585-84fba1ecf401" alt="Cap">
         <h3>Logo Cap – $15</h3>
+        <button>Buy Now</button>
       </div>
     </div>
   </section>
@@ -163,13 +247,18 @@
   <section class="section" id="about">
     <h2>About Urban Threadz</h2>
     <div class="about">
-      <p>Urban Threadz is a fresh streetwear brand built for the bold. We blend modern style with comfort so you can look good and feel good. Whether you're in the studio, the streets, or chilling with friends — our gear keeps you ready for the moment.</p>
+      <p>Urban Threadz is more than a brand — it’s a mindset. Built for the bold, we deliver modern essentials that speak the street's language. Whether you're posted up at the skatepark, hitting the city at night, or repping your crew — Urban Threadz gives you armor that matches your energy.</p>
+      <div class="reviews">
+        "The hoodie quality is actually insane." — someone cool<br>
+        "Feels like Yeezy on a budget." — a TikTok comment<br>
+        "🔥🔥🔥" — your next customer
+      </div>
     </div>
   </section>
 
   <section class="section" id="contact">
     <h2>Contact</h2>
-    <p>Want a custom website like this? Hit me up: <strong>yourname@gmail.com</strong><br/>Instagram: <strong>@yourhandle</strong></p>
+    <p>Want a custom website like this? Hit me up: <strong>everlvstt@gmail.com</strong><br/>Instagram: <strong>@gavpenawilson</strong></p>
   </section>
 
   <footer>
@@ -177,7 +266,7 @@
     <p>
       <a href="#">Instagram</a> | 
       <a href="#">TikTok</a> | 
-      <a href="#">Contact</a>
+      <a href="#">Threads</a>
     </p>
   </footer>
 
